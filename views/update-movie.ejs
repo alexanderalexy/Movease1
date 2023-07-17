@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update Movie</title>
+</head>
+<body>
+  <%- include('navbar'), {currentUser}%>
+
+  <h1>Update Movie</h1>
+
+  <form action="/search" method="POST">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" placeholder=""><br>
+    
+  
+    
+    <button type="submit">Search</button>
+  </form>
+  
+  <form action="/update-movie" method="POST">
+  
+    
+    <input type="text" name="title" placeholder="Title"><br>
+    <input type="text" name="director" placeholder="Genre"><br>
+    <input type="text" name="actors" placeholder="Actors"><br>
+    <input type="text" name="genre" placeholder="Movie Genre"><br>
+    <input type="number" name="length" placeholder="Length"><br>
+  
+  
+    <button type="submit">Update Movie</button>
+
+</form>
+  
+  <a href="/search"><button>Back to Search</button></a>
+</body>
+</html>
+

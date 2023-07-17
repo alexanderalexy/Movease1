@@ -1,0 +1,12 @@
+<%- include('navbar'), {currentUser}%>
+
+  <h1>Delete Movies</h1>
+  
+  <form action="/delete-movie" method="POST">
+    <label for="movieId">Movie ID:</label>
+    <input type="text" id="movieId" name="movieId" required>
+    <button type="submit">Delete Movie</button>
+  </form>
+  
+  
+

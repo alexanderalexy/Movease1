@@ -1,0 +1,21 @@
+<%- include('navbar'), {currentUser}%>
+<h1>Add your movie here !</h1>
+
+
+
+
+<form action="/add-movie" method="POST" >
+  <input type="text" name="title" id=""placeholder="movie title"> <br>
+  <input type="text" name="director" id="" placeholder="director"> <br>
+  <input type="text" name="actors" id="" placeholder="actors"> <br>
+  <input type="text" name="genre" id="" placeholder="movie genre"> <br>
+  <input type="number" name="length" id="" placeholder="length"> <br>
+  <input type="text" name="description" id="" placeholder="description"> <br>
+  <input type="file" name="image" id="" placeholder="Upload image"> <br>
+
+
+  <button type="submit">Save the movie</button>
+</form>
+
+
+<a href="/search"><button>Back to Search</button></a>
