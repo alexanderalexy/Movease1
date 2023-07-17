@@ -4,15 +4,16 @@
 
 
 
-<form action="/add-movie" method="POST" >
+<form action="/add-movie" method="POST" enctype="multipart/form-data">
   <input type="text" name="title" id=""placeholder="movie title"> <br>
   <input type="text" name="director" id="" placeholder="director"> <br>
   <input type="text" name="actors" id="" placeholder="actors"> <br>
   <input type="text" name="genre" id="" placeholder="movie genre"> <br>
   <input type="number" name="length" id="" placeholder="length"> <br>
   <input type="text" name="description" id="" placeholder="description"> <br>
-  <input type="file" name="image" id="" placeholder="Upload image"> <br>
-
+  <label>
+  <input type="file" name="image" id="" accept="image/png, image/jpg" placeholder="Upload image"> <br>
+  </label>
 
   <button type="submit">Save the movie</button>
 </form>

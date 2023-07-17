@@ -4,6 +4,7 @@ const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.middlewar
 //const express = require('express')
 const User = require('../models/User.model')
 const bcrypt = require("bcryptjs")
+const uploader = require('../config/cloudinary.config.js');
 //const router = express.Router()
 
 

@@ -2,6 +2,7 @@ const express = require('express');
 const { isLoggedIn, isAdmin } = require('../middleware/route-guard.middleware')
 const router = express.Router();
 const Movie = require('../models/Movie.model')
+const uploader = require('../config/cloudinary.config.js');
 /* GET home page */
 router.get("/", (req, res, next) => {
 
@@ -74,7 +75,7 @@ router.post('/search', async (req, res, next) => {
 
 //GET to add a new movie only with admin rights
 
-router.get('/add-movie',/*isLoggedIn,*/ isAdmin, (req, res, next ) => {
+router.get('/add-movie', /*isLoggedIn,*/ isAdmin, (req, res, next ) => {
   //added currentUser instead of user
  res.render('add-movie', { currentUser: req.session.currentUser })
 })
@@ -90,7 +91,9 @@ router.post('/add-movie', (req, res, next) => {
 })
 */
 
-router.post('/add-movie', async (req, res, next) => {
+router.post('/add-movie', uploader.single('image'), async (req, res, next) => {
+
+
   try {
     const { title, director, actors, genre, description, length, image } = req.body;
     console.log(req.body)
