@@ -1,5 +1,5 @@
 const express = require('express');
-const { isLoggedIn, isAdmin } = require('../middleware/route-guard.middleware')
+const { isLoggedIn, isAdmin, isLoggedOut } = require('../middleware/route-guard.middleware')
 const router = express.Router();
 const Movie = require('../models/Movie.model')
 const uploader = require('../config/cloudinary.config.js');
@@ -9,6 +9,17 @@ router.get("/", (req, res, next) => {
   console.log(req.session)
   res.render("index")
 });
+
+
+// GET-Route für den Logout
+router.get('/auth', (req, res) => {
+  // Führe hier die Logout-Logik durch, z.B. indem du die Benutzersitzung löscht
+  req.session.destroy();
+  
+  // Weiterleitung nach dem Logout, z.B. zur Startseite oder zur Anmeldeseite
+  res.redirect('/');
+});
+
 
 // GET search page
 
@@ -80,16 +91,6 @@ router.get('/add-movie', /*isLoggedIn,*/ isAdmin, (req, res, next ) => {
  res.render('add-movie', { currentUser: req.session.currentUser })
 })
 
-// POST route to add a new movie in the DB
-/*
-router.post('/add-movie', (req, res, next) => {
-  const { title, director, actors, genre, description, length, image } = req.body
-  
-  Movie.create({ title, director, actors, genre, description, length, image  })
-  .then( () => res.redirect('/add-movie'))
-  .catch( (err) => res.render('search'));
-})
-*/
 
 router.post('/add-movie', uploader.single('image'), async (req, res, next) => {
 
@@ -116,6 +117,7 @@ router.get('/delete-movie',/*isLoggedIn,*/ isAdmin, (req, res, next ) => {
 })
 
 // POST-Route zum Löschen eines Films
+
 router.post('/delete-movie', async (req, res, next) => {
   try {
     const { movieId } = req.body;
@@ -128,6 +130,27 @@ router.post('/delete-movie', async (req, res, next) => {
   }
 });
 
+// POST-Route zum Löschen eines Films
+/*
+router.post('/delete-movie', async (req, res, next) => {
+  try {
+    const { title } = req.body;
+    
+    const deleteMovie = await Movie.findOneAndDelete({ title: title });
+    
+    if (!deleteMovie) {
+      throw new Error('Movie not found');
+    }
+    
+    res.redirect('/delete-movie');
+  } catch (err) {
+    next(err);
+  }
+});
+*/
+
+
+
 // *****  UPDATE ROUTES *****
 
 router.get('/update-movie', isAdmin, (req, res, next ) => {
@@ -136,10 +159,12 @@ router.get('/update-movie', isAdmin, (req, res, next ) => {
 })
 
 
+
 // POST-Route zum Aktualisieren eines Films
+
 router.post('/update-movie', async (req, res, next) => {
   try {
-    const { search, id, title, director, actors, genre, length, description, image } = req.body;
+    const { search, title, director, actors, genre, length, description, image } = req.body;
     
     // Film suchen
     const movie = await Movie.findOneAndUpdate({ title: search }, {
@@ -153,10 +178,6 @@ router.post('/update-movie', async (req, res, next) => {
       image
     });
     
-    if (!movie) {
-      throw new Error('Movie not found');
-    }
-    
     res.redirect('/update-movie');
   } catch (err) {
     res.redirect('/update-movie');
@@ -164,59 +185,7 @@ router.post('/update-movie', async (req, res, next) => {
 });
 
 
-// GET-Route zum Anzeigen des Update-Formulars
-/*
-router.get('/update-movie', isAdmin, async (req, res, next) => {
-  try {
-    const searchTerm = req.query.searchTerm;
-    let movie;
-    
-    if (searchTerm) {
-      movie = await Movie.findOne({ title: searchTerm });
-      
-      if (!movie) {
-        throw new Error('Movie not found');
-      }
-    }
-    
-    res.render('update-movie', { movie: movie, searchTerm: searchTerm }, { currentUser: req.session.currentUser });
-  } catch (err) {
-    next(err);
-  }
-});
 
-// POST-Route zum Aktualisieren des Films
-router.post('/update-movie', isAdmin, async (req, res, next) => {
-  try {
-    const movieId = req.body.movieId;
-    const { title, director, actors, genre, length, description, image } = req.body;
-    
-    // Film aktualisieren
-    const updatedMovie = await Movie.findByIdAndUpdate(
-      movieId,
-      {
-        title,
-        director,
-        actors,
-        genre,
-        length,
-        description,
-        image
-      },
-      { new: true } // Das aktualisierte Dokument zurückgeben
-    );
-    
-    if (!updatedMovie) {
-      throw new Error('Movie not found');
-    }
-    
-    res.redirect('/update-movie');
-  } catch (err) {
-    res.redirect('/update-movie');
-  }
-});
-
-*/
 
 
 
