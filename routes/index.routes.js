@@ -6,19 +6,10 @@ const uploader = require('../config/cloudinary.config.js');
 /* GET home page */
 router.get("/", (req, res, next) => {
 
-  console.log(req.session)
+  console.log("LOOK HERE", req.session)
   res.render("index")
 });
 
-
-// GET-Route für den Logout
-router.get('/auth', (req, res) => {
-  // Führe hier die Logout-Logik durch, z.B. indem du die Benutzersitzung löscht
-  req.session.destroy();
-  
-  // Weiterleitung nach dem Logout, z.B. zur Startseite oder zur Anmeldeseite
-  res.redirect('/');
-});
 
 
 // GET search page
@@ -28,11 +19,18 @@ router.get('/search',isLoggedIn, /*isAdmin,*/ (req, res, next ) => {
   res.render('search', { currentUser: req.session.currentUser })
 })
 
-// POST-Route für die Filmdatensuche
+// logout route
+router.get("/logout", (req, res, next) => {
+  console.log('LOGOUT')
+  req.session.destroy((err) => {
+      if (err) {
+          console.log(err);
+      }
+      res.redirect("/");
+  });
+});
 
-// ...
 
-// ...
 
 // GET-Route für die Empfehlungsseite
 router.get('/recommendation', (req, res) => {
@@ -78,9 +76,6 @@ router.post('/search', async (req, res, next) => {
     res.render('recommendation', { movies: [], errorMessage: err.message });
   }
 });
-
-// ...
-
 
 
 
@@ -197,20 +192,13 @@ router.post('/update-movie/:id', uploader.single("image"), async (req, res, next
 
 
 
-
-
-
-
-
-
-
 //*****Navbar******/
 
 // Route for the home page
 router.get('/', (req, res) => {
-  if(req.session.user) {
+  //if(req.session.user) {
   res.render('index'); // Render the home.ejs file for the '/' route
-  }
+  //}
 });
 
 // Route for the search page
