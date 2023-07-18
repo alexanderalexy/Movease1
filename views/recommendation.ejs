@@ -11,7 +11,7 @@
     <ul>
       <% movies.forEach((movie) => { %>
         <li>
-          <strong>Image:</strong> <%= movie.image %><br>
+          <strong>Image:</strong> <img src=<%= movie.image %> alt="image"><br>
           <strong>Title:</strong> <%= movie.title %><br>
           <strong>Director:</strong> <%= movie.director %><br>
           <strong>Actors:</strong> <%= movie.actors %><br>
@@ -21,7 +21,7 @@
           
         </li>
         
-        <a href="/update-movie">Update Movie</a>
+        <a href="/update-movie/<%= movie._id  %>">Update Movie</a>
       <% }); %>
     </ul>
   <% } else if (movies && movies.length === 0) { %>

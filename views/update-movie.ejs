@@ -5,18 +5,18 @@
 </head>
 <body>
   <%- include('navbar'), {currentUser}%>
-
+  <%= movie.title %>
   <h1>Update Movie</h1>
-  
-  <form action="/update-movie" method="POST">
+ 
+  <form action="/update-movie/<%= movie._id %>" method="POST">
   
     
-    <input type="text" name="title" placeholder="title" value=""><br>
-    <input type="text" name="director" placeholder="Genre"><br>
-    <input type="text" name="actors" placeholder="Actors"><br>
-    <input type="text" name="genre" placeholder="Movie Genre"><br>
-    <input type="number" name="length" placeholder="Length"><br>
-  
+    <input type="text" name="title" value=<%= movie.title %> ><br>
+    <input type="text" name="director" value=<%= movie.director %> ><br>
+    <input type="text" name="actors" value=<%= movie.actors.join('') %>><br>
+    <input type="text" name="genre" value=<%= movie.genre %>><br>
+    <input type="number" name="length" value=<%= movie.length %>><br>
+    <textarea name="description"><%= movie.description %></textarea>
   
     <button type="submit">Update Movie</button>
 

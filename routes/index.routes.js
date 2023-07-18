@@ -93,18 +93,19 @@ router.get('/add-movie', /*isLoggedIn,*/ isAdmin, (req, res, next ) => {
 
 
 router.post('/add-movie', uploader.single('image'), async (req, res, next) => {
-
-
+console.log(req.file)
+const image = req.file.path
+const { title, director, actors, genre, description, length } = req.body;
+const payload = {title, director, actors, genre, description, length, image}
   try {
-    const { title, director, actors, genre, description, length, image } = req.body;
-    console.log(req.body)
-    const addMovie = await Movie.create({ title, director, actors, genre, description, length, image });
+    const addMovie = await Movie.create(payload);
     console.log(addMovie)
     res.redirect('/add-movie');
   } catch (err) {
     console.log(err)
     res.render('add-movie');
   }
+  
 });
 
 // ***** (D)ELETE ROUTES *****
@@ -153,34 +154,44 @@ router.post('/delete-movie', async (req, res, next) => {
 
 // *****  UPDATE ROUTES *****
 
-router.get('/update-movie', isAdmin, (req, res, next ) => {
+router.get('/update-movie/:id', isAdmin, async (req, res, next ) => { 
+  const { id } = req.params;
+  console.log(id)
   //added currentUser instead of user
- res.render('update-movie', { currentUser: req.session.currentUser })
+  try {
+    const foundMovie = await Movie.findById(id)
+    console.log(foundMovie)
+    res.render('update-movie', { currentUser: req.session.currentUser, movie: foundMovie})
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 
 
 // POST-Route zum Aktualisieren eines Films
 
-router.post('/update-movie', async (req, res, next) => {
+router.post('/update-movie/:id', uploader.single("image"), async (req, res, next) => {
+  const { id } = req.params;
   try {
-    const { search, title, director, actors, genre, length, description, image } = req.body;
+    const { title, director, actors, genre, length, description} = req.body;
     
     // Film suchen
-    const movie = await Movie.findOneAndUpdate({ title: search }, {
-      _id,
+    console.log(req.body)
+    const movie = await Movie.findByIdAndUpdate( id, {
+  
       title,
       director,
       actors,
       genre,
       length,
       description,
-      image
+    
     });
     
-    res.redirect('/update-movie');
+    res.redirect('/search');
   } catch (err) {
-    res.redirect('/update-movie');
+    res.redirect(`/update-movie/${id}`);
   }
 });
 
