@@ -1,12 +1,22 @@
 <%- include('navbar'), {currentUser}%>
 
-  <h1>Delete Movies</h1>
+<div class="search-wrapper">
+
+  <h1><span class="red">Delete</span> Movies</h1>
   
   <form action="/delete-movie" method="POST">
-    <label for="movieId">Movie ID:</label>
-    <input type="text" id="movieId" name="movieId" required>
-    <button type="submit">Delete Movie</button>
+    <div class="btn-frame-log">
+    
+    <div class="flex-input">
+    <label class="label" for="movieId">Movie ID:</label>
+    <input class="input" type="text" id="movieId" name="movieId" placeholder="Movie ID" required>
+    </div>
+
+    <div class="flex-input-btn">
+    <button class="btn-one" style="font-size: 1.3rem; color:white; font-weight: bold;" type="submit">Delete Movie</button>
+    </div>
+    </div>
   </form>
-  
+</div>
   
 

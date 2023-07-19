@@ -8,22 +8,25 @@
   
   <% if (movies && movies.length > 0) { %>
     <h2>Search Results:</h2>
+    <div class="btn-frame">
     <ul>
       <% movies.forEach((movie) => { %>
         <li>
+        <div class="image-box">
           <strong>Image:</strong> <img src=<%= movie.image %> alt="image"><br>
+        </div>
           <strong>Title:</strong> <%= movie.title %><br>
           <strong>Director:</strong> <%= movie.director %><br>
           <strong>Actors:</strong> <%= movie.actors %><br>
           <strong>Genre:</strong> <%= movie.genre %><br>
           <strong>Length:</strong> <%= movie.length %><br>
           <strong>Description:</strong> <%= movie.description %><br>
-          
         </li>
         
         <a href="/update-movie/<%= movie._id  %>">Update Movie</a>
       <% }); %>
     </ul>
+  </div>
   <% } else if (movies && movies.length === 0) { %>
     <p>No movies found.</p>
   <% } %>

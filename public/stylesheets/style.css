@@ -10,6 +10,7 @@ body {
   background-image: url('../images/Backgroundimage.jpg');
   background-size: contain;
   background-repeat: no-repeat;
+  background-color: black;
 
  
 }
@@ -191,3 +192,20 @@ h1 {
   width: 16.875rem;
   height: 6rem;
 }
+
+/*Recomondation Page*/
+
+.image-box {
+  width: 600px; /* Set the width of your image box */
+  height: 600px; /* Set the height of your image box */
+  overflow: hidden; /* Hide any portion of the image that exceeds the box size */
+  border-radius: 50px;
+}
+
+.image-box img {
+  width: 100%; /* Make the image width 100% of the container's width */
+  height: 100%; /* Make the image height 100% of the container's height */
+  object-fit: cover; /* Maintain aspect ratio and fill the image within the box */
+  border-radius: 50px;
+}
+
