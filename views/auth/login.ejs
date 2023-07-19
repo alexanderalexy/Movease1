@@ -1,17 +1,25 @@
-<h1>LogIn</h1>
+
+<div class="red-box">
+
+<h1>Log In</h1>
 
 <form action="/auth/login" method="POST">
-  <label>
-    Username:
-        <input type="text" name="username" required />
-  </label>
-  <label>
-    Password:
-        <input type="password" name="password" required />
-  </label>
-  <button type="submit">LogIn</button>
-</form>
-    
+<div class="btn-frame-log">
+<div class="flex-input">
+  <label class="label">Username:</label>
+        <input class="input" type="text" name="username" required />
+  
+</div>
+<div class="flex-input">
+  <label class="label"> Password:</label>
+        <input class="input" type="password" name="password" required />
+
+</div>
+</div>
+<div class="flex-input-btn">
+  <button class="btn-two"  style="color: #BE0503; font-size: 1.3rem; font-weight: bold;" type="submit">LogIn</button>
+</div>
+</form>  
 
 <% if (typeof errorMessage !== 'undefined') { %>
 <p style="color: red"><%= errorMessage %></p>

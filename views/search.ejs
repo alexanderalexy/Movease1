@@ -1,11 +1,12 @@
 <%- include('navbar'), {currentUser}%>
 
-
+<div class="search-wrapper">
 <h1>Hey <span class="red"><%= currentUser.username%></span>, find your <span class="red">next</span> movie</h1>
 
 
   
   <form action="/search" method="POST">
+  <div class="btn-frame">
   <div class="flex-input">
     <label class="label" for="title">Title:</label>
     <input class="input" type="text" id="title" name="title" placeholder="Movie Title"><br>
@@ -26,13 +27,10 @@
     <label class="label" for="length">Length:</label>
     <input class="input" type="number" id="length" name="length" placeholder="Length"><br>
   </div>  
-  <div class="flex-input">
-    <label class="label" for="description">Description:</label>
-    <input class="input" type="text" id="description" name="description" placeholder="Description"><br>
-  </div> 
-  <div class="flex-input">
+</div>
+  <div class="flex-input-btn">
     <button class="btn-one"  style="font-size: 1.3rem; color:white; font-weight: bold;"  type="submit">Search</button>
   </div>  
   </form>
-  
+</div>  
  

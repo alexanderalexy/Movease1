@@ -8,8 +8,9 @@ body {
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-image: url('../images/Backgroundimage.jpg');
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
+
  
 }
 
@@ -28,6 +29,8 @@ a {
   text-decoration: none;
   font-weight: bold;
 }
+
+
 
 h1 {
   color: white;
@@ -129,9 +132,55 @@ h1 {
 
 .label {
   color: white;
+  margin-bottom: 0.5em;
 }
 
 .flex-input {
   display: flex;
   flex-direction: column;
+  
+}
+
+.flex-input-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.btn-frame {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center; /* Center the grid horizontally */
+  align-items: center; /* Center the grid vertically */
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.search-wrapper {
+  margin-top: 170px;
+
+}
+
+/*Login Page*/
+.btn-frame-log {
+  display: grid;
+ 
+  justify-content: center; /* Center the grid horizontally */
+  align-items: center; /* Center the grid vertically */
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.red-box {
+  width: 37.5rem;
+  height: 37.5rem;
+  background-color: rgba(190, 5, 3, 0.3);
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 130px auto 0 auto;
+  padding-bottom: 100px;
+  
 }

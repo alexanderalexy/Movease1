@@ -1,17 +1,26 @@
+
+<div class="red-box">
 <h1>Signup</h1>
 
 <form action="/auth/signup" method="POST">
-  <label>
-    Username
-    <input name="username" required />
-  </label>
-  <label>
-    E-Mail
-    <input name="email" type="email" required />
-  </label>
-  <label>
-    Password
-    <input name="password" type="password" required />
-  </label>
-  <button type="submit">Signup</button>
+  <div class="btn-frame-log">
+    <div class="flex-input">
+      <label class="label">Username</label>
+      <input class="input" name="username" required />
+    </div>
+
+  <div class="flex-input">
+    <label class="label">E-Mail</label>
+    <input class="input" name="email" type="email" required />
+  </div>
+  
+  <div class="flex-input">
+    <label class="label">Password</label>
+    <input class="input" name="password" type="password" required />
+  </div>
+</div>
+<div class="flex-input-btn">
+  <button class="btn-two" type="submit" style="color: #BE0503; font-size: 1.3rem; font-weight: bold;">Signup</button>
+</div>
 </form>
+</div>
