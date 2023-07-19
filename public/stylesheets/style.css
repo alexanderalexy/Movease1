@@ -1,12 +1,137 @@
+*{
+  font-size: 16px;
+}
+
 body {
-  padding: 50px;
+  min-width: 100vw;
+  height: 100vh;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('../images/Backgroundimage.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+ 
+}
+
+.user {
+  font-size: 1rem;
+}
+
+.logo {
+  width: 16rem;
+  margin-top: 50px;
+  margin-left: 20px;
 }
 
 a {
-  color: #00b7ff;
+  color: #BE0503;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 h1 {
-  color: 80px;
+  color: white;
+  font-weight: bold;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.red{
+  color: #BE0503;
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+
+
+.btn-one {
+  background-color: #BE0503;
+  border-radius: 50px;
+  border: 2px solid white;
+  width: 16rem;
+  height: 4rem;
+  box-shadow: 0px 6px 12px rgba(190, 5, 3, 0.6);
+}
+
+.btn-one:hover {
+  
+  color: black;
+}
+
+.btn-two {
+  background-color: white;
+  border-radius: 50px;
+  border: 2px solid #BE0503;
+  width: 16rem;
+  height: 4rem;
+  box-shadow: 0px 6px 12px rgba(190, 5, 3, 0.6);
+}
+
+#header {
+  width: 100vw;
+  height: 20vh;
+  
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+ 
+  padding: 10px; /* Add padding for better visibility */
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline-block;
+  margin-right: 10px; /* Adjust the spacing between list items */
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #BE0503; /* Set the color of the navigation links */
+}
+
+
+/*Home Page*/
+
+.main-container {
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-container {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+}
+
+
+/*Search Page*/
+
+.input {
+  width: 16.875rem;
+  height: 3.125rem;
+  border-radius: 4px;
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.7);
+}
+
+.label {
+  color: white;
+}
+
+.flex-input {
+  display: flex;
+  flex-direction: column;
 }

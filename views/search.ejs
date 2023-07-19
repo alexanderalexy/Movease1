@@ -1,30 +1,38 @@
 <%- include('navbar'), {currentUser}%>
 
 
-<h1>Hey <%= currentUser.username%>, find your next movie</h1>
+<h1>Hey <span class="red"><%= currentUser.username%></span>, find your <span class="red">next</span> movie</h1>
 
 
   
   <form action="/search" method="POST">
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" placeholder="Movie Title"><br>
-    
-    <label for="director">Director:</label>
-    <input type="text" id="director" name="director" placeholder="Director"><br>
-    
-    <label for="actors">Actors:</label>
-    <input type="text" id="actors" name="actors" placeholder="Actors"><br>
-    
-    <label for="genre">Genre:</label>
-    <input type="text" id="genre" name="genre" placeholder="Genre"><br>
-    
-    <label for="length">Length:</label>
-    <input type="number" id="length" name="length" placeholder="Length"><br>
-    
-    <label for="description">Description:</label>
-    <input type="text" id="description" name="description" placeholder="Description"><br>
-    
-    <button type="submit">Search</button>
+  <div class="flex-input">
+    <label class="label" for="title">Title:</label>
+    <input class="input" type="text" id="title" name="title" placeholder="Movie Title"><br>
+  </div>
+  <div class="flex-input">
+    <label class="label" for="director">Director:</label>
+    <input  class="input" type="text" id="director" name="director" placeholder="Director"><br>
+  </div>  
+  <div class="flex-input"> 
+    <label class="label" for="actors">Actors:</label>
+    <input class="input" type="text" id="actors" name="actors" placeholder="Actors"><br>
+  </div>   
+  <div class="flex-input">
+    <label class="label" for="genre">Genre:</label>
+    <input class="input" type="text" id="genre" name="genre" placeholder="Genre"><br>
+  </div> 
+  <div class="flex-input">
+    <label class="label" for="length">Length:</label>
+    <input class="input" type="number" id="length" name="length" placeholder="Length"><br>
+  </div>  
+  <div class="flex-input">
+    <label class="label" for="description">Description:</label>
+    <input class="input" type="text" id="description" name="description" placeholder="Description"><br>
+  </div> 
+  <div class="flex-input">
+    <button class="btn-one"  style="font-size: 1.3rem; color:white; font-weight: bold;"  type="submit">Search</button>
+  </div>  
   </form>
   
  
