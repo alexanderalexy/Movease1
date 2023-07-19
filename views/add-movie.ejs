@@ -1,22 +1,50 @@
 <%- include('navbar'), {currentUser}%>
-<h1>Add your movie here !</h1>
+
+<div class="search-wrapper"></div>
+<h1><span class="red">Add</span> your<span class="red">movie</span> here !</h1>
 
 
 
 
 <form action="/add-movie" method="POST" enctype="multipart/form-data">
-  <input type="text" name="title" id=""placeholder="movie title"> <br>
-  <input type="text" name="director" id="" placeholder="director"> <br>
-  <input type="text" name="actors" id="" placeholder="actors"> <br>
-  <input type="text" name="genre" id="" placeholder="movie genre"> <br>
-  <input type="number" name="length" id="" placeholder="length"> <br>
-  <input type="text" name="description" id="" placeholder="description"> <br>
-  <label>
-  <input type="file" name="image" id="" accept="image/png, image/jpg" placeholder="Upload image"> <br>
-  </label>
+  <div class="btn-frame">
+    <div class="flex-input">
+    <label class="label">Title</label>
+    <input class="input" type="text" name="title" id=""placeholder="movie title"> <br>
+    </div>
 
-  <button type="submit">Save the movie</button>
+    <div class="flex-input">
+    <label class="label">Director</label>
+    <input class="input" type="text" name="director" id="" placeholder="director"> <br>
+    </div>
+
+    <div class="flex-input">
+    <label class="label">Actors</label>
+    <input class="input" type="text" name="actors" id="" placeholder="actors"> <br>
+    </div>
+
+    <div class="flex-input">
+    <label class="label">Genre</label>
+    <input class="input" type="text" name="genre" id="" placeholder="movie genre"> <br>
+    </div>
+
+    <div class="flex-input">
+    <label class="label">length in Minutes</label>
+    <input class="input" type="number" name="length" id="" placeholder="length"> <br>
+    </div>
+
+    <div class="flex-input">
+    <label class="label">Description</label>
+    <textarea class="textarea" name="description" id=""></textarea><br>
+    </div>
+
+    <div class="flex-input">
+    <label class="label">Upload Image</label>
+    <input type="file" name="image" id="" accept="image/png, image/jpg" placeholder="Upload image"> <br>
+    </div>
+  </div>
+<div class="btn-container">
+  <button  class="btn-one" type="submit" style="color: white; font-weight: bold; font-size:  1.3rem;"">Save the movie</button>
+</div>
 </form>
-
-
-<a href="/search"><button>Back to Search</button></a>
+</div>

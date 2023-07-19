@@ -184,3 +184,10 @@ h1 {
   padding-bottom: 100px;
   
 }
+
+/*Add Movie Page*/
+
+.textarea {
+  width: 16.875rem;
+  height: 6rem;
+}
