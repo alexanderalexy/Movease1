@@ -6,23 +6,43 @@
 <body>
   <%- include('navbar'), {currentUser}%>
   <%= movie.title %>
-  <h1>Update Movie</h1>
+
+  <div class="search-wrapper">
+  <h1><span class="red">Update</span> Movie</h1>
  
   <form action="/update-movie/<%= movie._id %>" method="POST">
-  
-    
-    <input type="text" name="title" value=<%= movie.title %> ><br>
-    <input type="text" name="director" value=<%= movie.director %> ><br>
-    <input type="text" name="actors" value=<%= movie.actors.join('') %>><br>
-    <input type="text" name="genre" value=<%= movie.genre %>><br>
-    <input type="number" name="length" value=<%= movie.length %>><br>
-    <textarea name="description"><%= movie.description %></textarea>
-  
-    <button type="submit">Update Movie</button>
+  <div class="btn-frame">
+    <div class="flex-input">
+    <input class="input" type="text" name="title" value=<%= movie.title %> ><br>
+    </div>
+
+    <div class="flex-input">
+    <input class="input" type="text" name="director" value=<%= movie.director %> ><br>
+    </div>
+
+    <div class="flex-input">
+    <input class="input" type="text" name="actors" value=<%= movie.actors.join('') %>><br>
+    </div>
+
+    <div class="flex-input">
+    <input class="input" type="text" name="genre" value=<%= movie.genre %>><br>
+    </div>
+
+    <div class="flex-input">
+    <input class="input" type="number" name="length" value=<%= movie.length %>><br>
+    </div>
+
+    <div class="flex-input">
+    <textarea class="textarea" name="description"><%= movie.description %></textarea>
+    </div>
+  </div>
+
+  <div class="flex-input-btn">
+    <button class="btn-one" type="submit" style="color: white; font-weight: bold; font-size:  1.3rem;">Update Movie</button>
+  </div>
 
 </form>
-  
-  <a href="/search"><button>Back to Search</button></a>
+</div> 
 </body>
 </html>
 
