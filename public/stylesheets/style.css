@@ -242,7 +242,7 @@ h1, h2 {
 .post-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  grid-gap: 60px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -254,7 +254,12 @@ h1, h2 {
   background-color: rgba(190, 5, 3, 0.3);
   border-radius: 50px;
   box-shadow: 0px 12px 24px rgba(192, 7, 7, 0.2);
-  margin-top: 0;
+  transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+  transform: scale(1.1);
+  box-shadow: none;
 }
 
 .image-box img {
