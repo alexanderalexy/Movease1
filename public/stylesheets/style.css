@@ -45,7 +45,7 @@ position: fixed;
   top: 3em;
   left: 3em;
  
-  padding: 1em; /* Add padding for better visibility */
+  padding: 1em; 
 }
 a {
   color: #BE0503;
@@ -203,6 +203,13 @@ h3 {
 
 }
 
+.rec-wrapper {
+  position: absolute;
+  top: 25vh;
+}
+
+
+
 /*Login Page*/
 .btn-frame-log {
   display: grid;
@@ -239,12 +246,19 @@ h1, h2 {
   text-align: center;
 }
 
+
+
 .post-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-gap: 60px;
   max-width: 1200px;
   margin: 0 auto;
+  align-items: start;
+  grid-auto-rows: auto; 
+  position: relative;
+  top: 2em;
+  
 }
 
 .post-card {
@@ -256,6 +270,9 @@ h1, h2 {
   box-shadow: 0px 12px 24px rgba(192, 7, 7, 0.2);
   transition: transform 0.2s ease;
 }
+
+
+
 
 .post-card:hover {
   transform: scale(1.1);
