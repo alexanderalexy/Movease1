@@ -32,8 +32,9 @@ router.get("/logout", (req, res, next) => {
 
 
 
-// GET-Route für die Empfehlungsseite
+// GET-Route Recommondation
 router.get('/recommendation', (req, res) => {
+  
   res.render('recommendation', { movies: [], errorMessage: null });
 });
 

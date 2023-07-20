@@ -4,29 +4,36 @@
   <title>Recommendation</title>
 </head>
 <body>
+
   <h1>Recommendation</h1>
   
   <% if (movies && movies.length > 0) { %>
     <h2>Search Results:</h2>
-    <div class="btn-frame">
-    <ul>
+  
+    <div class="post-grid">
       <% movies.forEach((movie) => { %>
-        <li>
+        <div class="post-card"> 
+      
         <div class="image-box">
-          <strong>Image:</strong> <img src=<%= movie.image %> alt="image"><br>
+          <img src=<%= movie.image %> alt="image"><br>
         </div>
-          <strong>Title:</strong> <%= movie.title %><br>
-          <strong>Director:</strong> <%= movie.director %><br>
-          <strong>Actors:</strong> <%= movie.actors %><br>
-          <strong>Genre:</strong> <%= movie.genre %><br>
-          <strong>Length:</strong> <%= movie.length %><br>
-          <strong>Description:</strong> <%= movie.description %><br>
-        </li>
+        <div class="post-details">
+          <h3><%= movie.title %><br></h3>
+          <strong class="card-text-white">Director:</strong> <p class="card-text"><%= movie.director %></p><br>
+          <strong class="card-text-white">Actors:</strong> <p class="card-text"><%= movie.actors %></p><br>
+          <strong class="card-text-white">Genre:</strong> <p class="card-text"><%= movie.genre %></p><br>
+          <strong class="card-text-white">Length:</strong> <p class="card-text"><%= movie.length %></p><br>
+          <strong class="card-text-white">Description:</strong> <p class="card-text"><%= movie.description %></p><br>
+      
         
-        <a href="/update-movie/<%= movie._id  %>">Update Movie</a>
+        
+        <a href="/update-movie/<%= movie._id  %>" class="card-text-link">Update Movie</a>
+      </div>
+    </div>
+        
       <% }); %>
-    </ul>
-  </div>
+    </div>
+
   <% } else if (movies && movies.length === 0) { %>
     <p>No movies found.</p>
   <% } %>
