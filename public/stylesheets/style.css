@@ -6,7 +6,7 @@ body {
   min-width: 100vw;
   height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url('../images/backgroundimage.jpg');
+  background-image: url('../images/Backgroundimage.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   background-color: black;
@@ -15,27 +15,43 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
-  
-
- 
+   
 }
+
+body {
+  
+  opacity: 0; /* Wir setzen die Anfangsopazität auf 0, damit die Elemente unsichtbar sind */
+}
+
+/* Übergangseffekte für das Erscheinen der Elemente */
+body.animate-in {
+  opacity: 1; /* Wenn die Opazität auf 1 gesetzt wird, werden die Elemente sichtbar */
+  transition: opacity 2s ease-in-out; /* Die Übergangsregel für das Erscheinen der Elemente */
+}
+
+
 
 .user {
   font-size: 1rem;
 }
 
 .logo {
-  width: 16rem;
-  margin-top: 20px;
-  margin-left: 20px;
+  width: 300px;
+  height: auto;
 }
 
+#header{
+position: fixed;
+  top: 3em;
+  left: 3em;
+ 
+  padding: 1em; /* Add padding for better visibility */
+}
 a {
   color: #BE0503;
   text-decoration: none;
   font-weight: bold;
 }
-
 
 
 h1 {
@@ -69,7 +85,8 @@ h3 {
 
 .btn-one:hover {
   
-  color: black;
+  background-color: #BE0503; 
+  
 }
 
 .btn-two {
@@ -84,8 +101,8 @@ h3 {
 
 .navbar {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 3em;
+  right: 3em;
  
   padding: 10px; /* Add padding for better visibility */
 }
@@ -93,17 +110,28 @@ h3 {
 .navbar ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 1em;
 }
 
 .navbar li {
   display: inline-block;
-  margin-right: 10px; /* Adjust the spacing between list items */
+  margin-right: 2em; /* Adjust the spacing between list items */
+
 }
 
 .navbar a {
   text-decoration: none;
   color: #BE0503; /* Set the color of the navigation links */
+  font-size: 1.2rem;
+  text-shadow: rgba(190, 5, 3, 0.4) 5px 5px 10px;
+}
+
+.navbar a:hover {
+  text-decoration: none;
+  color: #7c0705; /* Set the color of the navigation links */
+  font-size: 1.2rem;
+  text-shadow: none;
+
 }
 
 
@@ -133,6 +161,7 @@ h3 {
   width: 16.875rem;
   height: 3.125rem;
   border-radius: 4px;
+  padding-left: 0.5em;
   box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.7);
 }
 
@@ -218,7 +247,7 @@ h1, h2 {
   padding: 10px;
   background-color: rgba(190, 5, 3, 0.3);
   border-radius: 50px;
-  box-shadow: 0px 6px 12px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 12px 24px rgba(192, 7, 7, 0.2);
   margin-top: 0;
 }
 
@@ -250,7 +279,8 @@ a {
   color: rgb(213, 213, 213);
   font-size: 1.375rem;
   display: inline-block;
-  margin-top: -1em;
+  margin-top: -0.2em;
+  
 }
 
 .card-text-link {

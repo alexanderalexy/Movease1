@@ -14,8 +14,14 @@
     <img class="logo"
      src="../images/movease_logo.svg"
      alt="logo">
+    </header>
     <%- body %>
-  </header>
+    <script>
+      // JavaScript, um die Klasse 'animate-in' hinzuzufügen, sobald die Seite geladen ist
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('animate-in');
+      });
+    </script>
 
    
   </body>
