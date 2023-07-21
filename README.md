@@ -37,8 +37,11 @@ As an admin, you can also add, update and remove films to the database via the n
 
 **NOTE -** Add navigation after login on recommendation page and homepage -> better ux. In order to avoid the resulting problems as a user, you can use the browser's arrow keys (back) to navigate back to search from the recommendation page. If you are logged in to the homepage, you can return to the search page by deleting the cookie or by entering /search in the browser.
 
-Hide update movie link for users.
+**NOTE -** Hide update movie link for users.
 
+**NOTE -** Drop-down menu for set times of movies. E.g. >= 90 mins, >=120 mins
+
+**NOTE -** Genre search drop down menu.
 
 ## Backlog Functionalities
 
