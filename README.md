@@ -43,9 +43,17 @@ As an admin, you can also add, update and remove films to the database via the n
 
 **NOTE -** Genre search drop down menu.
 
+**NOTE -** Make movie not found on recommondation red.
+
+**NOTE -** Center the search button.
+
 ## Backlog Functionalities
 
 **NOTE -** API for dynamic links to streaming-services and a short movie preview.
+
+**NOTE -** Secure password conditions.
+
+**NOTE -** Completly responsive design.
 
 ## Technologies used
 
